@@ -1,10 +1,21 @@
 package ua.kpi.tef2.controller;
 
+import java.util.ResourceBundle;
+
 public class InputValidator {
-    private static final String NAME_AND_LAST_NAME_REG_EX = "^[A-Z]([a-z][^(-){2,}\\s.]?)+$";
-    private static final String COMMENT_REG_EX = "^[\\w\\s.,!?:…]{0,500}$";
-    private static final String PHONE_REG_EX = "^(\\+\\d\\d-)?(\\d\\d\\d)-(\\d\\d\\d)(-\\d\\d){2}$";
-    private static final String EMAIL_REG_EX = "^[\\w.]{3,15}@[a-zA-Z.]{4,15}$";
+
+    static {
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("RegExProperties");
+        NAME_AND_LAST_NAME_REG_EX = resourceBundle.getString("regexp.nameAndLastName");
+        COMMENT_REG_EX = resourceBundle.getString("regexp.comment");
+        PHONE_REG_EX = resourceBundle.getString("regexp.phone");
+        EMAIL_REG_EX = resourceBundle.getString("regexp.email");
+    }
+
+    private static final String NAME_AND_LAST_NAME_REG_EX;
+    private static final String COMMENT_REG_EX;
+    private static final String PHONE_REG_EX;
+    private static final String EMAIL_REG_EX;
 
     public static boolean validate(String inputType, String input) {
         String regEx = "";
