@@ -6,24 +6,22 @@ public class InputValidator {
     private static final String PHONE_REG_EX = "^(\\+\\d\\d-)?(\\d\\d\\d)-(\\d\\d\\d)(-\\d\\d){2}$";
     private static final String EMAIL_REG_EX = "^[\\w.]{3,15}@[a-zA-Z.]{4,15}$";
 
-    private static final String NAME = "Name";
-    private static final String EMAIL = "Email";
-    private static final String PHONE = "Phone";
-    private static final String COMMENT = "Comment";
-
     public static boolean validate(String inputType, String input) {
         String regEx = "";
         switch (inputType) {
-            case NAME:
+            case InputType.NAME:
                 regEx = NAME_AND_LAST_NAME_REG_EX;
                 break;
-            case COMMENT:
+            case InputType.LAST_NAME:
+                regEx = NAME_AND_LAST_NAME_REG_EX;
+                break;
+            case InputType.COMMENT:
                 regEx = COMMENT_REG_EX;
                 break;
-            case PHONE:
+            case InputType.PHONE:
                 regEx = PHONE_REG_EX;
                 break;
-            case EMAIL:
+            case InputType.EMAIL:
                 regEx = EMAIL_REG_EX;
                 break;
         }
