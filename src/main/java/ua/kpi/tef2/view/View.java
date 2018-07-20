@@ -2,7 +2,7 @@ package ua.kpi.tef2.view;
 
 public class View {
 
-    public void pringMessage(String message) {
+    public void printMessage(String message) {
         System.out.println(message);
     }
 

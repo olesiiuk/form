@@ -10,12 +10,16 @@ public class InputValidator {
         COMMENT_REG_EX = resourceBundle.getString("regexp.comment");
         PHONE_REG_EX = resourceBundle.getString("regexp.phone");
         EMAIL_REG_EX = resourceBundle.getString("regexp.email");
+        LOGIN_REG_EX = resourceBundle.getString("regexp.login");
+        PASSWORD_REG_EX = resourceBundle.getString("regexp.password");
     }
 
     private static final String NAME_AND_LAST_NAME_REG_EX;
     private static final String COMMENT_REG_EX;
     private static final String PHONE_REG_EX;
     private static final String EMAIL_REG_EX;
+    private static final String LOGIN_REG_EX;
+    private static final String PASSWORD_REG_EX;
 
     public static boolean validate(String inputType, String input) {
         String regEx = "";
@@ -34,6 +38,12 @@ public class InputValidator {
                 break;
             case InputType.EMAIL:
                 regEx = EMAIL_REG_EX;
+                break;
+            case InputType.LOGIN:
+                regEx = LOGIN_REG_EX;
+                break;
+            case InputType.PASSWORD:
+                regEx = PASSWORD_REG_EX;
                 break;
         }
         return input.matches(regEx);
